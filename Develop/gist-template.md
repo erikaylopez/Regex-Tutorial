@@ -19,11 +19,17 @@ When put together, a regular expression can look similar to this example:
 The regular expression breakdown is as follows:
 
 - '^' : Indicates the start of the string.
+
 - '[a-zA-Z0-9._%+-]+' : matches the criteria for username
--'@' : indicates @ symbol
+
+- '@' : indicates @ symbol
+
 - '[a-zA-Z0-9.-]+' : matches criteria for domain
+
 - '\.' : matching the dot before the TLD
+
 - '[a-zA-Z]{2,}' : matches criteria for TLD
+
 - '$' : indicates end of string  
 
 This regular expression would match standard email addresses such as "erika@email.com"
@@ -54,22 +60,48 @@ The second is the End of Line Anchor ($) and it indicates that the said anchor s
 
 Quantifiers specify how many times characters or groups of characters appear in various parts of the email address. 
 
-'+' quantifier ensures that at least one occurence of elements (lowercase letters, digits, underscores, dots or hyphens) has occured.
+- '+' quantifier ensures that at least one occurence of elements (lowercase letters, digits, underscores, dots or hyphens) has occured.
 
-'+' quantifier after the sequence, '[a-zA-Z0-9._%+-]' signifies that at least one character has been used in the username.
+- '+' quantifier after the sequence, '[a-zA-Z0-9._%+-]' signifies that at least one character has been used in the username.
 
-'+' quantifier after the sequence, '+ after [a-zA-Z0-9.-]' signifies that at least one character has been in the domain. 
+- '+' quantifier after the sequence, '+ after [a-zA-Z0-9.-]' signifies that at least one character has been in the domain. 
 
-{2,4} is another quantifier in matching an email address and signifies that the top-level domain (TLD) should contain between 2 to 4 alphabetical characters. This quantifier can be found after the sequence, '[a-zA-Z]'. 
+- {2,4} is another quantifier in matching an email address and signifies that the top-level domain (TLD) should contain between 2 to 4 alphabetical characters. This quantifier can be found after the sequence, '[a-zA-Z]'. 
 
 
 # Character Classes
 
+Character classes are used to match specific patterns found in email addresses.
+
+- '[A-Za-z0-9._%+-]+' : This character class matches one or more alphanumeric characters, dots, underscores, percentage signs, plus signs, or hyphens in the username.
+
+- '@' : Matches the '@' symbol.
+
+- '[A-Za-z0-9.-]+' : Matches one or more alphanumeric characters, dots, or hyphens in the domain.
+
+- '\.' : Matches a dot '.'
+
+- '[A-Za-z]{2,}' : Matches two or more alphabetic characters for the top-level domain.
+
 
 # Grouping and Capturing
 
+Grouping and capturing allows the isolation and extraction of specific parts of an email address such as username, domain, and top-level domain. 
+Parentheses in regular expressions allows you to create groups- where anything inside the parentheses captures a group. 
+
+- '([A-Za-z0-9._%+-]+)' : captures the first group known as the username part of the email address.
+
+- '@' matches the '@' : symbol.
+
+- '([A-Za-z0-9.-]+)' : captures the second group known as the domain part of the email address.
+
+- '\.' matches the dot '.' : separating the domain and the top-level domain.
+
+- '([A-Za-z]{2,})' : captures the third group known as the top-level domain.
+
 
 # Bracket Expressions
+
 
 
 # Greedy and Lazy Match
