@@ -153,3 +153,6 @@ Example: "example.erika+test@email.com"
 # Author
 Questions or concerns can be addressed to [erikaylopez Github](https://github.com/erikaylopez)
 
+
+# Gist GitHub
+[Gist GitHub](https://gist.github.com/erikaylopez/418e0c11c1acb63525611a6ac38f724a)
